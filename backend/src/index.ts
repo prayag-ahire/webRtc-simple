@@ -5,10 +5,10 @@ const wss = new WebSocketServer({port:8080});
 let senderSocket: null|WebSocket = null;
 let receiverSocket: null | WebSocket = null;
 
-wss.on('connection',function connection(ws){
+wss.on('connection',function connection(ws:WebSocket){
     ws.on('error',console.error);
 
-    ws.on('message',function message(data:Buffer){
+    ws.on('message',function message(data:JSON){
         const message = JSON.parse(data.toString());
     if (message.type === 'sender') {
       senderSocket = ws;

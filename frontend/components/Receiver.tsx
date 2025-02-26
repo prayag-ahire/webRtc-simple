@@ -1,3 +1,4 @@
+
 import { useEffect } from "react"
 
 
@@ -20,6 +21,8 @@ export const Receiver = () => {
         const pc = new RTCPeerConnection();
         pc.ontrack = (event) => {
             video.srcObject = new MediaStream([event.track]);
+            video.muted = true;
+            video.autoplay = true;
             video.play();
         }
 

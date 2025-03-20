@@ -1,4 +1,6 @@
 
+
+import React from "react";
 import { useEffect, useState } from "react"
 
 export const Sender = () => {
@@ -21,7 +23,6 @@ export const Sender = () => {
             alert("Socket not found");
             return;
         }
-
         socket.onmessage = async (event) => {
             const message = JSON.parse(event.data);
             if (message.type === 'createAnswer') {

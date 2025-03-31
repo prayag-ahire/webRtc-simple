@@ -55,7 +55,7 @@ export const Sender = () => {
         getCameraStreamAndSend(pc);
     }
 
-    const getCameraStreamAndSend = (pc: RTCPeerConnection) => {
+    const getCameraStreamAndSend = async(pc: RTCPeerConnection) => {
         navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
             const video = document.createElement('video');
             video.srcObject = stream;
